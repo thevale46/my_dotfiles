@@ -89,6 +89,9 @@ if ((Get-Module PSReadLine).Version -ge [version]'2.2.0') {
 # 5) zoxide  (smarter cd:  z foo, zi)
 # ---------------------------------------------------------------------
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
+    # Disable zoxide's doctor self-check: it false-positives when a prompt
+    # framework (oh-my-posh) re-registers the prompt after this line.
+    $env:_ZO_DOCTOR = '0'
     Invoke-Expression (& { (zoxide init powershell --cmd z) -join "`n" })
 }
 

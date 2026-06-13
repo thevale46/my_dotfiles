@@ -44,6 +44,9 @@ tmux() {
   source "$(brew --prefix)/opt/fzf/shell/completion.bash"
 
 # ---- Zoxide -------------------------------------------------
+# Disable zoxide's doctor self-check: it false-positives when a prompt
+# framework re-registers PROMPT_COMMAND after this line. Harmless to set.
+export _ZO_DOCTOR=0
 eval "$(zoxide init bash)"
 
 # ---- NVM ----------------------------------------------------

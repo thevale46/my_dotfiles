@@ -45,6 +45,9 @@ tmux() {
 [ -f /usr/share/doc/fzf/examples/key-bindings.bash ] && source /usr/share/doc/fzf/examples/key-bindings.bash
 
 # ---- Zoxide -------------------------------------------------
+# Disable zoxide's doctor self-check: it false-positives when a prompt
+# framework re-registers PROMPT_COMMAND after this line. Harmless to set.
+export _ZO_DOCTOR=0
 eval "$(zoxide init bash)"
 
 # ---- NVM ----------------------------------------------------

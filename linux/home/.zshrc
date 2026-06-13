@@ -28,4 +28,8 @@ alias fd='fdfind'
 [[ -f /usr/share/doc/fzf/examples/completion.zsh ]] && source /usr/share/doc/fzf/examples/completion.zsh
 
 # ---- Zoxide -------------------------------------------------
+# zoxide is already initialized last, but powerlevel10k's instant-prompt +
+# async hooks re-register precmd after this line, tripping zoxide's doctor
+# self-check (false positive). Disable the check rather than the hook.
+export _ZO_DOCTOR=0
 eval "$(zoxide init zsh)"
