@@ -65,7 +65,7 @@ dotfiles/
 ### macOS / Linux / WSL2
 
 ```bash
-git clone git@github.com:theVale46/my_dot_files.git ~/dotfiles
+git clone git@github.com:thevale46/my_dotfiles.git ~/dotfiles
 cd ~/dotfiles
 ./install.sh
 ```
@@ -90,7 +90,7 @@ nvim                         # LazyVim auto-installs all plugins on first launch
 ### Windows native (PowerShell)
 
 ```powershell
-git clone git@github.com:theVale46/my_dot_files.git $HOME\dotfiles
+git clone git@github.com:thevale46/my_dotfiles.git $HOME\dotfiles
 cd $HOME\dotfiles
 .\install.ps1
 ```
@@ -274,4 +274,4 @@ The following are **never committed** (enforced by `.gitignore`):
 | Repo | Purpose |
 |------|---------|
 | [`theVale46/agent-skills`](https://github.com/theVale46/agent-skills) | OpenCode agent skills, prompts, and commands (cloned by `install.sh` into `~/.config/opencode/skills/`) |
-| [`theVale46/my_dot_files`](https://github.com/theVale46/my_dot_files) | This repo |
+| [`thevale46/my_dotfiles`](https://github.com/thevale46/my_dotfiles) | This repo |
