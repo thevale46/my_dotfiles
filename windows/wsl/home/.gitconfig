@@ -1,0 +1,10 @@
+[user]
+    name = biswa-wsl
+    email = biswajit.p@outlook.com
+[core]
+    editor = nvim
+    autocrlf = false
+[init]
+    defaultBranch = main
+[pull]
+    rebase = false

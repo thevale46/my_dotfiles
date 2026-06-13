@@ -1,0 +1,9 @@
+[user]
+    name = biswa-linux
+    email = biswajit.p@outlook.com
+[core]
+    editor = nvim
+[init]
+    defaultBranch = main
+[pull]
+    rebase = false

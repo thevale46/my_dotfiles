@@ -1,0 +1,29 @@
+# Credentials & tokens — never commit
+gh/hosts.yml
+**/*token*
+**/*secret*
+**/*.env
+.env*
+.claude.json
+.kube/
+.docker/
+
+# Machine-specific metadata
+ubuntu-insights/
+uv/uv-receipt.json
+opencode/memory/
+
+# Framework installs (bootstrapped by install.sh)
+.oh-my-zsh/
+oh-my-zsh/
+
+# Tmux backup clutter
+tmux/*.bak-*
+
+# Plugin data (installed at runtime)
+**/node_modules/
+**/.venv/
+
+# OS clutter
+.DS_Store
+Thumbs.db

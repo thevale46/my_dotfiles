@@ -1,0 +1,52 @@
+# ============================================================
+# Shared ZSH config — sourced by all platform .zshrc files
+# Platform .zshrc must:
+#   1. source this file
+#   2. set plugins=($SHARED_ZSH_PLUGINS <extras>)
+#   3. source $ZSH/oh-my-zsh.sh
+#   4. add platform PATH and aliases after
+# ============================================================
+
+export ZSH="${XDG_CONFIG_HOME:-$HOME/.config}/.oh-my-zsh"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+
+# Shared OMZ plugins (platform .zshrc appends its own before sourcing OMZ)
+SHARED_ZSH_PLUGINS=(
+  git
+  docker
+  docker-compose
+  python
+  ansible
+  kubectl
+  colored-man-pages
+  colorize
+  command-not-found
+  tmux
+)
+
+# ---- Aliases (platform-agnostic) ----------------------------
+alias ls='eza --icons=always --color=always -s name'
+alias ll='eza -l --icons=always --color=always -s name'
+alias la='eza -a --icons=always --color=always -s name'
+alias lla='eza -la --icons=always --color=always -s name'
+alias llt='eza -la --icons=always --color=always -T'
+alias cd='z'
+alias cdi='zi'
+alias vf='nvim "$(fzf)"'
+alias python=python3
+alias pip=pip3
+
+# ---- tmux wrapper (ensures XDG config path is used) ---------
+export TMUX_CONF="$HOME/.config/tmux/tmux.conf"
+tmux() {
+  if [[ -f "$TMUX_CONF" ]]; then
+    command tmux -f "$TMUX_CONF" "$@"
+  else
+    command tmux "$@"
+  fi
+}
+
+# ---- NVM ----------------------------------------------------
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"

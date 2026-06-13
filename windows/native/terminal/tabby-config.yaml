@@ -1,0 +1,735 @@
+version: 8
+profiles:
+  - name: my-p3591-01 - Admin
+    options:
+      host: 192.168.4.102
+      user: diffused
+      algorithms: {}
+      input: {}
+    weight: -1
+    color: '#d9534f'
+    icon: fas fa-server
+    group: 915b8f7e-d635-41b8-8f96-60bdeda80245
+    type: ssh
+    id: ssh:custom:my-p3591-01-Admin:1fbbbedb-93c0-4d12-b51b-958ec7436b2f
+  - name: my-p3591-01 - Dev
+    options:
+      host: 192.168.4.102
+      user: dev
+      algorithms: {}
+      input: {}
+    weight: -1
+    color: '#5cb85c'
+    icon: fas fa-server
+    group: 915b8f7e-d635-41b8-8f96-60bdeda80245
+    type: ssh
+    id: ssh:custom:my-p3591-01-Dev:559af391-5786-4c30-afe7-912d0ed93aef
+  - name: auperap275
+    icon: fas fa-desktop
+    options:
+      host: auperap275
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group16-sha512
+          - ext-info-c
+          - ext-info-s
+          - kex-strict-c-v00@openssh.com
+          - kex-strict-s-v00@openssh.com
+          - mlkem768x25519-sha256
+        cipher:
+          - aes128-ctr
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm@openssh.com
+          - chacha20-poly1305@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+        compression:
+          - none
+      input: {}
+      privateKeys: []
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    terminalColorScheme:
+      name: 3024 Night
+      foreground: '#a5a2a2'
+      background: '#090300'
+      cursor: '#a5a2a2'
+      colors:
+        - '#090300'
+        - '#db2d20'
+        - '#01a252'
+        - '#fded02'
+        - '#01a0e4'
+        - '#a16a94'
+        - '#b5e4f4'
+        - '#a5a2a2'
+        - '#5c5855'
+        - '#e8bbd0'
+        - '#3a3432'
+        - '#4a4543'
+        - '#807d7c'
+        - '#d6d5d4'
+        - '#cdab53'
+        - '#f7f7f7'
+    id: ssh:custom:auperap275:b176ebf9-b405-4bd4-b865-01450955f114
+    group: 33f2e059-015a-4244-9803-5ae5b559f0d0
+    color: '#0275d8'
+    type: ssh
+  - name: aumelmon5
+    options:
+      host: aumelmon5
+      algorithms: {}
+      input: {}
+      user: biswajitpradhan.1
+    weight: -1
+    terminalColorScheme:
+      name: 3024 Night
+      foreground: '#a5a2a2'
+      background: '#090300'
+      cursor: '#a5a2a2'
+      colors:
+        - '#090300'
+        - '#db2d20'
+        - '#01a252'
+        - '#fded02'
+        - '#01a0e4'
+        - '#a16a94'
+        - '#b5e4f4'
+        - '#a5a2a2'
+        - '#5c5855'
+        - '#e8bbd0'
+        - '#3a3432'
+        - '#4a4543'
+        - '#807d7c'
+        - '#d6d5d4'
+        - '#cdab53'
+        - '#f7f7f7'
+    group: 9b66dcab-40c2-436a-b12f-96ad4cc13087
+    icon: fas fa-server
+    color: '#d9534f'
+    clearServiceMessagesOnConnect: false
+    type: ssh
+    id: ssh:custom:aumelmon5:a174499c-14dc-4517-a7db-3472a3c26f9d
+  - name: aumelmon6
+    options:
+      host: aumelmon6
+      algorithms: {}
+      input: {}
+      user: biswajitpradhan.1
+    weight: -1
+    terminalColorScheme:
+      name: 3024 Night
+      foreground: '#a5a2a2'
+      background: '#090300'
+      cursor: '#a5a2a2'
+      colors:
+        - '#090300'
+        - '#db2d20'
+        - '#01a252'
+        - '#fded02'
+        - '#01a0e4'
+        - '#a16a94'
+        - '#b5e4f4'
+        - '#a5a2a2'
+        - '#5c5855'
+        - '#e8bbd0'
+        - '#3a3432'
+        - '#4a4543'
+        - '#807d7c'
+        - '#d6d5d4'
+        - '#cdab53'
+        - '#f7f7f7'
+    group: 9b66dcab-40c2-436a-b12f-96ad4cc13087
+    icon: fas fa-server
+    color: '#d9534f'
+    clearServiceMessagesOnConnect: false
+    type: ssh
+    id: ssh:custom:aumelmon6:3e9f650e-2152-4df5-8b28-98142d64e15b
+  - name: aumelmon7
+    options:
+      host: aumelmon7
+      algorithms: {}
+      input: {}
+      user: biswajitpradhan.1
+    weight: -1
+    terminalColorScheme:
+      name: 3024 Night
+      foreground: '#a5a2a2'
+      background: '#090300'
+      cursor: '#a5a2a2'
+      colors:
+        - '#090300'
+        - '#db2d20'
+        - '#01a252'
+        - '#fded02'
+        - '#01a0e4'
+        - '#a16a94'
+        - '#b5e4f4'
+        - '#a5a2a2'
+        - '#5c5855'
+        - '#e8bbd0'
+        - '#3a3432'
+        - '#4a4543'
+        - '#807d7c'
+        - '#d6d5d4'
+        - '#cdab53'
+        - '#f7f7f7'
+    group: 9b66dcab-40c2-436a-b12f-96ad4cc13087
+    icon: fas fa-server
+    color: '#d9534f'
+    clearServiceMessagesOnConnect: false
+    type: ssh
+    id: ssh:custom:aumelmon7:a333eea5-c75e-4a28-8abe-3fba51c8dd92
+  - name: auperap280
+    options:
+      host: auperap280
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group16-sha512
+          - ext-info-c
+          - ext-info-s
+          - kex-strict-c-v00@openssh.com
+          - kex-strict-s-v00@openssh.com
+          - mlkem768x25519-sha256
+        cipher:
+          - aes128-ctr
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm@openssh.com
+          - chacha20-poly1305@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+        compression:
+          - none
+      input: {}
+      user: biswajitpradhan.1
+      privateKeys: []
+      forwardedPorts: []
+      scripts: []
+    weight: -1
+    terminalColorScheme:
+      name: 3024 Night
+      foreground: '#a5a2a2'
+      background: '#090300'
+      cursor: '#a5a2a2'
+      colors:
+        - '#090300'
+        - '#db2d20'
+        - '#01a252'
+        - '#fded02'
+        - '#01a0e4'
+        - '#a16a94'
+        - '#b5e4f4'
+        - '#a5a2a2'
+        - '#5c5855'
+        - '#e8bbd0'
+        - '#3a3432'
+        - '#4a4543'
+        - '#807d7c'
+        - '#d6d5d4'
+        - '#cdab53'
+        - '#f7f7f7'
+    group: 9b66dcab-40c2-436a-b12f-96ad4cc13087
+    icon: fas fa-server
+    id: ssh:custom:APAC-W-PE3-auperap280:3319eb43-804f-41a4-bb57-89553bd26b32
+    color: '#ffd500'
+    type: ssh
+  - name: auperap281
+    options:
+      host: auperap281
+      algorithms:
+        hmac:
+          - hmac-sha1
+          - hmac-sha1-etm@openssh.com
+          - hmac-sha2-256
+          - hmac-sha2-256-etm@openssh.com
+          - hmac-sha2-512
+          - hmac-sha2-512-etm@openssh.com
+        kex:
+          - curve25519-sha256
+          - curve25519-sha256@libssh.org
+          - diffie-hellman-group14-sha256
+          - diffie-hellman-group16-sha512
+          - ext-info-c
+          - ext-info-s
+          - kex-strict-c-v00@openssh.com
+          - kex-strict-s-v00@openssh.com
+          - mlkem768x25519-sha256
+        cipher:
+          - aes128-ctr
+          - aes192-ctr
+          - aes256-ctr
+          - aes256-gcm@openssh.com
+          - chacha20-poly1305@openssh.com
+        serverHostKey:
+          - ecdsa-sha2-nistp256
+          - ecdsa-sha2-nistp521
+          - rsa-sha2-256
+          - rsa-sha2-512
+          - ssh-ed25519
+          - ssh-rsa
+        compression:
+          - none
+      input: {}
+      user: biswajitpradhan.1
+      scripts: []
+      privateKeys: []
+      forwardedPorts: []
+    weight: -1
+    terminalColorScheme:
+      name: 3024 Night
+      foreground: '#a5a2a2'
+      background: '#090300'
+      cursor: '#a5a2a2'
+      colors:
+        - '#090300'
+        - '#db2d20'
+        - '#01a252'
+        - '#fded02'
+        - '#01a0e4'
+        - '#a16a94'
+        - '#b5e4f4'
+        - '#a5a2a2'
+        - '#5c5855'
+        - '#e8bbd0'
+        - '#3a3432'
+        - '#4a4543'
+        - '#807d7c'
+        - '#d6d5d4'
+        - '#cdab53'
+        - '#f7f7f7'
+    group: 9b66dcab-40c2-436a-b12f-96ad4cc13087
+    icon: fas fa-server
+    color: '#ffd500'
+    id: ssh:custom:APAC-W-PE3-auperap281:0601ee26-07f0-43f0-8339-59ef58724d10
+    type: ssh
+  - name: aupermon50
+    options:
+      host: aupermon50
+      algorithms: {}
+      input: {}
+      user: biswajitpradhan.1
+    weight: -1
+    terminalColorScheme:
+      name: 3024 Night
+      foreground: '#a5a2a2'
+      background: '#090300'
+      cursor: '#a5a2a2'
+      colors:
+        - '#090300'
+        - '#db2d20'
+        - '#01a252'
+        - '#fded02'
+        - '#01a0e4'
+        - '#a16a94'
+        - '#b5e4f4'
+        - '#a5a2a2'
+        - '#5c5855'
+        - '#e8bbd0'
+        - '#3a3432'
+        - '#4a4543'
+        - '#807d7c'
+        - '#d6d5d4'
+        - '#cdab53'
+        - '#f7f7f7'
+    group: 9b66dcab-40c2-436a-b12f-96ad4cc13087
+    icon: fas fa-server
+    id: ssh:custom:aupermon50:e50934fb-ba80-4fdf-81a4-070ed404596b
+    color: '#d9534f'
+    clearServiceMessagesOnConnect: false
+    type: ssh
+  - name: aupermon51
+    options:
+      host: aupermon51
+      algorithms: {}
+      input: {}
+      user: biswajitpradhan.1
+    weight: -1
+    terminalColorScheme:
+      name: 3024 Night
+      foreground: '#a5a2a2'
+      background: '#090300'
+      cursor: '#a5a2a2'
+      colors:
+        - '#090300'
+        - '#db2d20'
+        - '#01a252'
+        - '#fded02'
+        - '#01a0e4'
+        - '#a16a94'
+        - '#b5e4f4'
+        - '#a5a2a2'
+        - '#5c5855'
+        - '#e8bbd0'
+        - '#3a3432'
+        - '#4a4543'
+        - '#807d7c'
+        - '#d6d5d4'
+        - '#cdab53'
+        - '#f7f7f7'
+    group: 9b66dcab-40c2-436a-b12f-96ad4cc13087
+    icon: fas fa-server
+    color: '#d9534f'
+    clearServiceMessagesOnConnect: false
+    id: ssh:custom:aupermon51:979415b3-e1ab-4c04-af0f-1298361c5c78
+    type: ssh
+  - name: aupermon52
+    options:
+      host: aupermon52
+      algorithms: {}
+      input: {}
+      user: biswajitpradhan.1
+    weight: -1
+    terminalColorScheme:
+      name: 3024 Night
+      foreground: '#a5a2a2'
+      background: '#090300'
+      cursor: '#a5a2a2'
+      colors:
+        - '#090300'
+        - '#db2d20'
+        - '#01a252'
+        - '#fded02'
+        - '#01a0e4'
+        - '#a16a94'
+        - '#b5e4f4'
+        - '#a5a2a2'
+        - '#5c5855'
+        - '#e8bbd0'
+        - '#3a3432'
+        - '#4a4543'
+        - '#807d7c'
+        - '#d6d5d4'
+        - '#cdab53'
+        - '#f7f7f7'
+    group: 9b66dcab-40c2-436a-b12f-96ad4cc13087
+    icon: fas fa-server
+    color: '#d9534f'
+    clearServiceMessagesOnConnect: false
+    type: ssh
+    id: ssh:custom:aupermon52:e90d0f91-80c8-4045-8910-dfdfc4fb8f07
+  - type: local
+    name: WSL
+    options:
+      command: C:\WINDOWS\system32\wsl.exe
+      env:
+        TERM: xterm-color
+        COLORTERM: truecolor
+      shellType: unix
+      args: []
+    icon: fab fa-ubuntu
+    color: '#f0ad4e'
+    id: local:custom:WSL:9a352a1f-f9bc-4b11-8fa8-d096abb6dfa2
+    group: b527e032-befb-4ef1-9450-4bdb5c3a774c
+groups:
+  - id: 33f2e059-015a-4244-9803-5ae5b559f0d0
+    name: Jumphost Linux
+  - id: 9b66dcab-40c2-436a-b12f-96ad4cc13087
+    name: NetDevOps Servers
+  - id: 915b8f7e-d635-41b8-8f96-60bdeda80245
+    name: Homelab
+  - id: b527e032-befb-4ef1-9450-4bdb5c3a774c
+    name: Local
+configSync:
+  parts: {}
+hotkeys:
+  toggle-window:
+    - Ctrl-Space
+  copy-current-path: []
+  ctrl-c:
+    - Ctrl-C
+  copy:
+    - Ctrl-Shift-C
+  paste:
+    - Ctrl-Shift-V
+    - Shift-Insert
+  select-all:
+    - Ctrl-Shift-A
+  clear: []
+  zoom-in:
+    - Ctrl-=
+    - Ctrl-Shift-=
+  zoom-out:
+    - Ctrl--
+    - Ctrl-Shift--
+  reset-zoom:
+    - Ctrl-0
+  home:
+    - Home
+  end:
+    - End
+  previous-word:
+    - Ctrl-Left
+  next-word:
+    - Ctrl-Right
+  delete-previous-word:
+    - Ctrl-Backspace
+  delete-line:
+    - Ctrl-Shift-Backspace
+  delete-next-word:
+    - Ctrl-Delete
+  search:
+    - Ctrl-Shift-F
+  pane-focus-all:
+    - Ctrl-Shift-I
+  focus-all-tabs:
+    - Ctrl-Alt-Shift-I
+  scroll-to-top:
+    - Ctrl-PageUp
+  scroll-page-up:
+    - Alt-PageUp
+  scroll-up:
+    - Ctrl-Shift-Up
+  scroll-down:
+    - Ctrl-Shift-Down
+  scroll-page-down:
+    - Alt-PageDown
+  scroll-to-bottom:
+    - Ctrl-PageDown
+  restart-telnet-session: []
+  restart-ssh-session: []
+  launch-winscp: []
+  settings-tab: {}
+  settings:
+    - Ctrl-,
+  serial:
+    - Alt-K
+  restart-serial-session: []
+  new-tab:
+    - Ctrl-Shift-T
+  new-window:
+    - Ctrl-Shift-N
+  profile: {}
+  profile-selectors: {}
+  group-selectors: {}
+  toggle-fullscreen:
+    - F11
+    - Alt-Enter
+  close-tab:
+    - Ctrl-Shift-W
+  reopen-tab:
+    - Ctrl-Shift-Z
+  toggle-last-tab: []
+  rename-tab:
+    - Ctrl-Shift-R
+  next-tab:
+    - Ctrl-Shift-Right
+    - Ctrl-Tab
+  previous-tab:
+    - Ctrl-Shift-Left
+    - Ctrl-Shift-Tab
+  move-tab-left:
+    - Ctrl-Shift-PageUp
+  move-tab-right:
+    - Ctrl-Shift-PageDown
+  rearrange-panes:
+    - Ctrl-Shift
+  duplicate-tab: []
+  restart-tab: []
+  reconnect-tab: []
+  disconnect-tab: []
+  explode-tab:
+    - Ctrl-Shift-.
+  combine-tabs:
+    - Ctrl-Shift-,
+  tab-1:
+    - Alt-1
+  tab-2:
+    - Alt-2
+  tab-3:
+    - Alt-3
+  tab-4:
+    - Alt-4
+  tab-5:
+    - Alt-5
+  tab-6:
+    - Alt-6
+  tab-7:
+    - Alt-7
+  tab-8:
+    - Alt-8
+  tab-9:
+    - Alt-9
+  tab-10:
+    - Alt-0
+  tab-11: []
+  tab-12: []
+  tab-13: []
+  tab-14: []
+  tab-15: []
+  tab-16: []
+  tab-17: []
+  tab-18: []
+  tab-19: []
+  tab-20: []
+  split-right:
+    - Ctrl-Shift-S
+  split-bottom:
+    - Ctrl-Shift-D
+  split-left: []
+  split-top: []
+  pane-nav-right:
+    - Ctrl-Alt-Right
+  pane-nav-down:
+    - Ctrl-Alt-Down
+  pane-nav-up:
+    - Ctrl-Alt-Up
+  pane-nav-left:
+    - Ctrl-Alt-Left
+  pane-nav-previous:
+    - Ctrl-Alt-[
+  pane-nav-next:
+    - Ctrl-Alt-]
+  pane-nav-1: []
+  pane-nav-2: []
+  pane-nav-3: []
+  pane-nav-4: []
+  pane-nav-5: []
+  pane-nav-6: []
+  pane-nav-7: []
+  pane-nav-8: []
+  pane-nav-9: []
+  pane-maximize:
+    - Ctrl-Alt-Enter
+  close-pane: []
+  pane-increase-vertical: []
+  pane-decrease-vertical: []
+  pane-increase-horizontal: []
+  pane-decrease-horizontal: []
+  switch-profile:
+    - Ctrl-Alt-T
+  profile-selector:
+    - Ctrl-Shift-E
+  command-selector:
+    - Ctrl-Shift-P
+  open-sftp: []
+terminal:
+  searchOptions: {}
+  colorScheme:
+    name: PaulMillr
+    foreground: '#f2f2f2'
+    background: '#000000'
+    cursor: '#4d4d4d'
+    colors:
+      - '#2a2a2a'
+      - '#ff0000'
+      - '#79ff0f'
+      - '#e7bf00'
+      - '#396bd7'
+      - '#b449be'
+      - '#66ccff'
+      - '#bbbbbb'
+      - '#666666'
+      - '#ff0080'
+      - '#66ff66'
+      - '#f3d64e'
+      - '#709aed'
+      - '#db67e6'
+      - '#7adff2'
+      - '#ffffff'
+  customColorSchemes: []
+  profile: local:wsl
+  lightColorScheme:
+    name: 3024 Night
+    foreground: '#a5a2a2'
+    background: '#090300'
+    cursor: '#a5a2a2'
+    colors:
+      - '#090300'
+      - '#db2d20'
+      - '#01a252'
+      - '#fded02'
+      - '#01a0e4'
+      - '#a16a94'
+      - '#b5e4f4'
+      - '#a5a2a2'
+      - '#5c5855'
+      - '#e8bbd0'
+      - '#3a3432'
+      - '#4a4543'
+      - '#807d7c'
+      - '#d6d5d4'
+      - '#cdab53'
+      - '#f7f7f7'
+  font: MesloLGS NF
+  scrollbackLines: 9999999999999
+  ligatures: true
+  cursor: beam
+  linePadding: 1
+ssh:
+  knownHosts:
+    - host: auperap275
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: A1co96PwqCZUmz3+99A1igDYbM8ZVu9boeUc7orvX+4=
+    - host: auperap281
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: u+0oXbfWMhm1oGnEJxB5fCdzTRyzd0UnLUT4+b9m55Q=
+    - host: aupermon50
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: XQPFondMlBVtl8PQ83A5GSqAKSQhcbSxZF7lmbAh1cQ=
+    - host: auperap280
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: RdoveXkCKw8a3MtDd9j1Pl8lt0z/pZz1KuJAd+bQ2To=
+    - host: 192.168.4.102
+      port: 22
+      type: ecdsa-sha2-nistp256
+      digest: 8hlUpPis19poJHE32hlZzA+F16VTEQf6HHhq1rzwOWM=
+  warnOnClose: true
+clickableLinks: {}
+accessibility: {}
+appearance:
+  spaciness: 0.9
+  frame: full
+  colorSchemeMode: auto
+hacks: {}
+pluginBlacklist: []
+providerBlacklist: []
+commandBlacklist: []
+enableAnalytics: false
+profileBlacklist: []
+profileDefaults:
+  ssh:
+    disableDynamicTitle: true
+    type: ssh
+    options:
+      algorithms: {}
+      input: {}
+      host: ''
+      user: biswajitpradhan
+      auth: password
