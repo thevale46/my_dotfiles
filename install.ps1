@@ -7,7 +7,8 @@
 #>
 
 $DOTFILES = $PSScriptRoot
-$script:FAILED = [System.Collections.Generic.List[string]]::new()
+$script:FAILED     = [System.Collections.Generic.List[string]]::new()
+$script:FailNotes  = [System.Collections.Generic.List[string]]::new()
 
 # ── Helpers ───────────────────────────────────────────────────
 
@@ -24,6 +25,17 @@ function Has-Module([string]$Name) {
     return [bool](Get-Module -ListAvailable -Name $Name -ErrorAction SilentlyContinue)
 }
 
+function Is-NetworkError([string]$Msg) {
+    return $Msg -match "network|timed?\s?out|blocked|proxy|ssl|certificate|download|403|404|connect|unreachable|raw\.github|github\.com"
+}
+
+function Mark-Failed([string]$Label, [string]$Note) {
+    Write-Host "  [FAIL] $Label"
+    if ($Note) { Write-Host "         ^ $Note" }
+    $script:FAILED.Add($Label)
+    $script:FailNotes.Add($Note)
+}
+
 function Check-Tool {
     param([string]$Label, [string]$WingetId, [string[]]$Cmds)
     foreach ($cmd in $Cmds) {
@@ -31,14 +43,24 @@ function Check-Tool {
     }
     Write-Host "  [missing] $Label — trying to install $WingetId..."
     try {
-        winget install --id $WingetId --silent --accept-source-agreements --accept-package-agreements 2>&1 | Out-Null
+        $out = winget install --id $WingetId --silent --accept-source-agreements --accept-package-agreements 2>&1 | Out-String
         Refresh-Path
         foreach ($cmd in $Cmds) {
             if (Has-Command $cmd) { Write-Host "  [installed] $Label"; return }
         }
-    } catch {}
-    Write-Host "  [FAIL] $Label"
-    $script:FAILED.Add($Label)
+        if (Is-NetworkError $out) {
+            Mark-Failed $Label "network error — GitHub download URLs may be blocked on this network"
+        } else {
+            Mark-Failed $Label "installed but command not found — check PATH"
+        }
+    } catch {
+        $errMsg = $_.Exception.Message
+        if (Is-NetworkError $errMsg) {
+            Mark-Failed $Label "network error — GitHub/raw.githubusercontent.com may be blocked"
+        } else {
+            Mark-Failed $Label "winget failed: $($errMsg.Split([Environment]::NewLine)[0])"
+        }
+    }
 }
 
 function Check-PSModule([string]$Name) {
@@ -47,9 +69,15 @@ function Check-PSModule([string]$Name) {
     try {
         Install-Module -Name $Name -Force -SkipPublisherCheck -Scope CurrentUser -ErrorAction Stop 2>&1 | Out-Null
         if (Has-Module $Name) { Write-Host "  [installed] PS:$Name"; return }
-    } catch {}
-    Write-Host "  [FAIL] PS:$Name"
-    $script:FAILED.Add("PS:$Name")
+        Mark-Failed "PS:$Name" "installed but module not found"
+    } catch {
+        $errMsg = $_.Exception.Message
+        if (Is-NetworkError $errMsg) {
+            Mark-Failed "PS:$Name" "network error — PowerShell Gallery may be blocked"
+        } else {
+            Mark-Failed "PS:$Name" "Install-Module failed: $($errMsg.Split([Environment]::NewLine)[0])"
+        }
+    }
 }
 
 function Link-Config {
@@ -70,8 +98,11 @@ function Link-Config {
 
 # ── Hard requirement: winget ──────────────────────────────────
 if (-not (Has-Command "winget")) {
-    Write-Host "ERROR: winget is not available. Install 'App Installer' from the Microsoft Store." -ForegroundColor Red
-    Write-Host "No changes were made." -ForegroundColor Red
+    Write-Host ""
+    Write-Host "ERROR: winget is not available." -ForegroundColor Red
+    Write-Host "  Install 'App Installer' from the Microsoft Store, or" -ForegroundColor Red
+    Write-Host "  ask IT to install the tools listed in README.md manually." -ForegroundColor Red
+    Write-Host "  No changes were made." -ForegroundColor Red
     exit 1
 }
 
@@ -94,11 +125,33 @@ Check-PSModule "PSFzf"
 
 if ($script:FAILED.Count -gt 0) {
     Write-Host ""
-    Write-Host "ERROR: The following prerequisites could not be installed:" -ForegroundColor Red
-    foreach ($f in $script:FAILED) { Write-Host "  - $f" -ForegroundColor Red }
+    Write-Host "┌─────────────────────────────────────────────────────────┐" -ForegroundColor Red
+    Write-Host "│  ERROR: prerequisites missing — no changes were made    │" -ForegroundColor Red
+    Write-Host "└─────────────────────────────────────────────────────────┘" -ForegroundColor Red
     Write-Host ""
-    Write-Host "Install them manually and re-run install.ps1." -ForegroundColor Red
-    Write-Host "No dotfile changes were made." -ForegroundColor Red
+    Write-Host "Failed tools:" -ForegroundColor Yellow
+    for ($i = 0; $i -lt $script:FAILED.Count; $i++) {
+        Write-Host "  • $($script:FAILED[$i])" -ForegroundColor Yellow
+        if ($script:FailNotes[$i]) {
+            Write-Host "    reason: $($script:FailNotes[$i])" -ForegroundColor DarkYellow
+        }
+    }
+    Write-Host ""
+    Write-Host "Common cause on work machines:" -ForegroundColor Cyan
+    Write-Host "  raw.githubusercontent.com or GitHub release/download URLs"
+    Write-Host "  may be blocked by your corporate firewall or proxy."
+    Write-Host "  winget pulls packages from GitHub; PSGallery may also be"
+    Write-Host "  restricted."
+    Write-Host ""
+    Write-Host "Options:" -ForegroundColor Cyan
+    Write-Host "  1. Connect via VPN and re-run .\install.ps1"
+    Write-Host "  2. Ask IT to allowlist winget sources / PowerShell Gallery"
+    Write-Host "  3. Install tools manually using an internal mirror, then"
+    Write-Host "     re-run .\install.ps1"
+    Write-Host ""
+    Write-Host "See README.md > Prerequisites > Windows native for the"
+    Write-Host "full list of winget IDs and PS module names."
+    Write-Host ""
     exit 1
 }
 
