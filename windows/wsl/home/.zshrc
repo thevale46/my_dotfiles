@@ -22,7 +22,7 @@ alias bat='batcat'
 alias fd='fdfind'
 
 # ---- WSL-specific aliases -----------------------------------
-alias obsidian="/mnt/c/Users/biswajitpradhan/AppData/Local/Programs/Obsidian/Obsidian.exe"
+# alias obsidian="/mnt/c/Users/biswajitpradhan/AppData/Local/Programs/Obsidian/Obsidian.exe"
 
 # ---- FZF (system package) -----------------------------------
 [[ -f /usr/share/fzf/key-bindings.zsh ]] && source /usr/share/fzf/key-bindings.zsh
@@ -36,3 +36,4 @@ alias obsidian="/mnt/c/Users/biswajitpradhan/AppData/Local/Programs/Obsidian/Obs
 # self-check (false positive). Disable the check rather than the hook.
 export _ZO_DOCTOR=0
 eval "$(zoxide init zsh)"
+alias c=claude

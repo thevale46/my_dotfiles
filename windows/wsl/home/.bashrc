@@ -27,7 +27,7 @@ alias cd='z'
 alias python=python3
 alias pip=pip3
 alias vf='nvim "$(fzf)"'
-alias obsidian="/mnt/c/Users/biswajitpradhan/AppData/Local/Programs/Obsidian/Obsidian.exe"
+# alias obsidian="/mnt/c/Users/biswajitpradhan/AppData/Local/Programs/Obsidian/Obsidian.exe"
 
 # ---- tmux wrapper -------------------------------------------
 export TMUX_CONF="$HOME/.config/tmux/tmux.conf"

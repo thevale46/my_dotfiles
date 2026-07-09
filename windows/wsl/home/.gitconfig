@@ -8,3 +8,8 @@
     defaultBranch = main
 [pull]
     rebase = false
+[pager]
+    branch = false
+    stash = false
+    diff = false
+  status = false
