@@ -43,7 +43,7 @@ tmux() {
     command tmux -f "$TMUX_CONF" "$@"
   else
     command tmux "$@"
-  fi.pytest_cache
+  fi
 }
 
 # ---- NVM ----------------------------------------------------
