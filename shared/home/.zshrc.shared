@@ -29,7 +29,7 @@ alias ll='eza -l --icons=always --color=always -s name'
 alias la='eza -a --icons=always --color=always -s name'
 alias lla='eza -la --icons=always --color=always -s name'
 alias llt='eza -la --icons=always --color=always -T'
-alias llti='eza -la --icons=always --color=always -T -I ".venv|__pycache__|.claude|.git|.github|.opencode|openspec|graphify-out|docs"'
+alias llti='eza -la --icons=always --color=always -T -I ".venv|__pycache__|.claude|.git|.github|.opencode|openspec|graphify-out|docs|.pytest_cache|tests|logs"'
 alias cd='z'
 alias cdi='zi'
 alias vf='nvim "$(fzf)"'
@@ -43,7 +43,7 @@ tmux() {
     command tmux -f "$TMUX_CONF" "$@"
   else
     command tmux "$@"
-  fi
+  fi.pytest_cache
 }
 
 # ---- NVM ----------------------------------------------------
